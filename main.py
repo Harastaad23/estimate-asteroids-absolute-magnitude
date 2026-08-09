@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Import all the necessary functions from your custom module
-from Finalized.asteroid_tools import (
+from asteroid_tools import (
     get_valid_input, 
     get_reducted_magnitude, 
     interpolating, 
