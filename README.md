@@ -1,10 +1,25 @@
-Hello! This is actually my first python project that I uploaded to GitHub.
+# Asteroid Lightcurve & Phase Curve Analysis
 
-This is python script to estimate asteroid's absolute magnitude from their light curve data. 
-The program needed two data inputs:
-1. Light curve data for asteroid
-2. Ephemeris data for the same asteroid around observation data.
-Make sure both inputs are CSV format. Light curve data should have three columns: JD, magnitude, and error magnitude. While ephemeris should have 4 columns:
-JD, phase angle, heliocentric distance, and geocentric distance. These inputs are important because the program is very straight forward.
+This repository contains a Python program designed to analyze asteroid lightcurve data. It processes observational data to find rotation periods, fits Fourier series to the lightcurves, and calculates the absolute magnitude (H) and slope parameters (G1, G2) using the H-G1-G2 model.
 
-That's it! If you have any questions regarding this, feel free to contact the owner!
+## Features
+
+* **Data Reductions:** Option to remove distance effects from apparent magnitude.
+* **Phase Angle Interpolation:** Aligns ephemeris data with lightcurve observations.
+* **Clustering:** Groups data based on phase angles using the Ckmeans algorithm.
+* **Period Analysis:** Finds the best rotation period using the Lomb-Scargle Periodogram.
+* **Fourier Fitting:** Automatically determines the best Fourier order and extracts the baseline magnitude ($c_0$).
+* **Phase Curve Modeling:** Calculates parameters using both linear regression and the H-G1-G2 model.
+
+## File Structure
+
+* `main.py`: The main execution script that runs the step-by-step analysis.
+* `asteroid_tools.py`: A modular file containing all the underlying math, processing, and plotting functions.
+* Data folders (e.g., `19 Fortuna/`, `87 Sylvia/`): Expected to contain the `.csv` files for lightcurves and ephemeris data.
+
+## Prerequisites
+
+To run this program, you need Python installed on your computer along with several scientific libraries. You can install the required packages using pip:
+
+```bash
+pip install pandas numpy matplotlib seaborn astropy scipy ckmeans-1d-dp
